@@ -71,6 +71,17 @@ pagination_dir: page
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
+Plugins:
+- hexo-generator-feed
+- hexo-generator-sitemap
+#Feed Atom
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+#sitemap
+sitemap:
+  path: sitemap.xml
 ## Themes: https://hexo.io/themes/
 theme: next
 
@@ -80,3 +91,10 @@ deploy:
   type: git
   repo: https://github.com/fintx/fintx.github.io.git
   branch: master
+
+# Local Search
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
