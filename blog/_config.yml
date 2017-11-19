@@ -98,5 +98,9 @@ search:
   field: post
   format: html
   limit: 10000
+
 # MathJax Support
 mathjax: true
+
+# enable hexo-all-minifier to optimizes HTML, CSS, JS and imagages
+all_minifier: false
