@@ -1,7 +1,7 @@
 ---
 title: 业务与技术的思考
 date: 2017-09-28 21:44:05
-categories: "思考"
+categories: 思考
 tags: [技术,业务]
 comments: true
 description: "谨以此篇作为FinTx的开始"
