@@ -1,6 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[账务核心系统介绍]]></title>
+    <url>%2F20170730-introduction-of-accounting-system.html</url>
+    <content type="text"><![CDATA[欢迎在GitHub上关注FinTx的开源账务系统：fintx-accounting]]></content>
+      <categories>
+        <category>Accounting</category>
+      </categories>
+      <tags>
+        <tag>accounting</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[互联网金融公司整体业务架构]]></title>
+    <url>%2F20170730-general-business-archetecture.html</url>
+    <content type="text"><![CDATA[欢迎在GitHub上关注FinTx的开源账务系统：fintx-accounting]]></content>
+      <categories>
+        <category>Architecture</category>
+      </categories>
+      <tags>
+        <tag>business</tag>
+        <tag>architecture</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[互联网金融公司技术架构]]></title>
+    <url>%2F20170730-general-technology-archetecture.html</url>
+    <content type="text"><![CDATA[欢迎在GitHub上关注FinTx：FinTx]]></content>
+      <categories>
+        <category>Architecture</category>
+      </categories>
+      <tags>
+        <tag>business</tag>
+        <tag>architecture</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[无日切，动账更新的7X24小时的账务系统设计]]></title>
+    <url>%2F20170725-7x24-continuous-accounting-system.html</url>
+    <content type="text"><![CDATA[7X24服务，国外常称为24X7，是不间断服务的别称。由于金融系统的特殊性，经常需要对某日切（日期切换的简称）点的数据进行批量处理或者分析，而客户的金融需求随时都会有，业务时时刻刻都在发生，所以7X24服务对金融企业尤其重要。7X24的概念最初由国外软件服务商介绍引入，国内银行业基本全面实现7*24服务。但在国内互联网金融领域仍未普及。实现不间断的金融服务，基本思想就是一个字段不可能承载两份数据，所以要用多个字段去存储数据，一份存储实时数据，一份存日切点数据。7X24服务基本有两套主流方式——双余额法（单表双余额法）和影子账户法（双表单余额法）。比较这两种方式，双余额法逻辑稍复杂，但是操作简单，对业务的影响及资源占用低。影子账户法虽逻辑简单一些但是，需要追账等复杂操作，且在原占用多，对业务也有影响（需要追账的业务过多会影响日夜模式切换，部分业务受限）。综合比较之下双余额法是目前实现7X24服务的最优方法。双余额法的一般原理是账户（双余额法不是专用与账务系统，这里账户不专指分户账，有需求的业务账户也可以使用）中设置余额，上期余额，最终交易日期三个字段。 账号|上期余额|余额|最终交易日期 -|-|-|- account_no|last_balance|balance|latest_trans_date 在获取账户余额时，比较最终更新日期与当前日期，当前日期&gt;=更新日期，则取余额，否则取上期余额。在更新账户余额时，比较最终更新日期与当前日期。当前日期&lt;更新日期（后详），则更新上期余额和余额。当前日期=更新日期，则更新余额。当前日期&gt;更新日期,则设置上期余额=余额再更新余额，最后设置更新日期=当前日期。由上可见，在双余额的条件下不太关心系统什么时候日切，只要按照交易系统传入的当前日期与更新日期做比较即可。对更新余额的情况分两种–动账更新和批量更新。动账更新时在每个账户需要进行账务处理时才更新账户余额，批量更新是每天日切之后对交易日期为昨日的账户统一更余额。动账更新的方式对系统资源占用更少但是对依赖于余额数据的批量来说会相对复杂，批量新会做大量无意义的处理，并且在日切后处理也无法完全保证账户持续可用（更新时要锁定虽然时间可能很短），但是对有依赖于余额数据的其他批量来说会更简单。FinTx开源的账务系统中选择了动账更新的方式，并且对余额获取提供方式提供了封装好的函数供全局调用。当然账务系统由于其特定的领域特征，7X24的实现更复杂一些，但是原理相同。账号|上期余额|上期借发生额|上期贷发生额|余额|借发生额|贷发生额|最终交易日期 -|-|-|-|-|-|-|- account_no|last_balance|last_dr_trans_amt|last_cr_trans_amt|balance|dr_trans_amt|cr_trans_amt|latest_trans_date这里也是一个简化模型引入了借贷发生额供大家思考，完整实现请参考FinTx的开源账务系统。补充一份关于7X24服务实现的文档银行核心系统7x24方案参考，来源于网络，如有侵权请联系。 欢迎在GitHub上关注FinTx的开源账务系统：fintx-accounting]]></content>
+      <categories>
+        <category>Accounting</category>
+      </categories>
+      <tags>
+        <tag>accounting</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[MySQL线上死锁问题分析一例]]></title>
     <url>%2F20170723-deadlock-analysis-of-mysql-1.html</url>
     <content type="text"><![CDATA[1 问题描述0)表结构:1234567CREATE TABLE `t_acctsn_custno_pkid` ( `CustNo` char(20) COLLATE utf8_bin NOT NULL, `CustType` char(2) COLLATE utf8_bin NOT NULL, `AcctSN` char(8) COLLATE utf8_bin NOT NULL, `id` bigint(20) NOT NULL AUTO_INCREMENT, PRIMARY KEY (`id`)) ENGINE=InnoDB; 1)表数据 CustNo CustType AcctSN id 0000001 00 0 1 0000002 00 0 2 2)问题程序示意12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667int concurrency = 5;for (int c = 0; c &lt; concurrency; c++) &#123; new Thread(new Runnable() &#123; @Override public void run() &#123; while (true) &#123; Connection conn = null; try &#123; conn = DBUtil.getTxnConnection(); PreparedStatement ps = DBUtil.getPreparedStatement(conn, "select acctSN+1 from t_acctsn_custno_pkid where custNo = ? for update"); ps.setString(1, "0000001"); ResultSet rs = ps.executeQuery(); DBUtil.closePreparedStatement(ps); ps = DBUtil.getPreparedStatement(conn, "update t_acctsn_custno_pkid set acctSN=? where custNo = ? "); ps.setString(1, acctSN); ps.setString(2, "0000001"); ps.executeUpdate(); DBUtil.closePreparedStatement(ps); DBUtil.closeTxnConnection(conn, true); &#125; catch (Exception e) &#123; e.printStackTrace(); if (null != conn) &#123; DBUtil.closeTxnConnection(conn, false); &#125; &#125; &#125; &#125; &#125;).start(); new Thread(new Runnable() &#123; @Override public void run() &#123; while (true) &#123; Connection conn = null; try &#123; conn = DBUtil.getTxnConnection(); PreparedStatement ps = DBUtil.getPreparedStatement(conn, "select acctSN+1 from t_acctsn_custno_pkid where custNo = ? for update"); ps.setString(1, "0000002"); ResultSet rs = ps.executeQuery(); DBUtil.closePreparedStatement(ps); ps = DBUtil.getPreparedStatement(conn, " update t_acctsn_custno_pkid set acctSN=? where custNo = ? "); ps.setString(1, acctSN); ps.setString(2, "0000002"); ps.executeUpdate(); DBUtil.closePreparedStatement(ps); DBUtil.closeTxnConnection(conn, true); &#125; catch (Exception e) &#123; e.printStackTrace(); if (null != conn) &#123; DBUtil.closeTxnConnection(conn, false); &#125; &#125; &#125; &#125; &#125;).start(); 3) MySQL死锁日志1234567891011121314151617181920212223242526272829303132333435363738394041424344454647------------------------LATEST DETECTED DEADLOCK------------------------2015-12-31 15:34:23 7fb7cdabb700*** (1) TRANSACTION:TRANSACTION 336633, ACTIVE 0 sec fetching rowsmysql tables in use 1, locked 1LOCK WAIT 3 lock struct(s), heap size 360, 2 row lock(s)MySQL thread id 102345, OS thread handle 0x7fb7cdc41700, query id 1133481 172.16.5.15 root Sending dataselect acctSN+1 from t_acctsn_custno_pkid where custNo = &apos;0000001&apos; for update*** (1) WAITING FOR THIS LOCK TO BE GRANTED:RECORD LOCKS space id 810 page no 3 n bits 72 index `PRIMARY` of table `checkaccount`.`t_acctsn_custno_pkid` trx id 336633 lock_mode X locks rec but not gap waitingRecord lock, heap no 3 PHYSICAL RECORD: n_fields 6; compact format; info bits 0 0: len 8; hex 8000000000000002; asc ;; 1: len 6; hex 0000000522f0; asc &quot; ;; 2: len 7; hex 31000001721bc8; asc 1 r ;; 3: len 20; hex 3030303030303220202020202020202020202020; asc 0000002 ;; 4: len 2; hex 3030; asc 00;; 5: len 8; hex 3135343434202020; asc 15444 ;;*** (2) TRANSACTION:TRANSACTION 336632, ACTIVE 0 sec starting index readmysql tables in use 1, locked 13 lock struct(s), heap size 360, 2 row lock(s)MySQL thread id 102340, OS thread handle 0x7fb7cdabb700, query id 1133491 172.16.5.15 root updatingupdate t_acctsn_custno_pkid set acctSN=&apos;15445&apos; where custNo = &apos;0000002&apos;*** (2) HOLDS THE LOCK(S):RECORD LOCKS space id 810 page no 3 n bits 72 index `PRIMARY` of table `checkaccount`.`t_acctsn_custno_pkid` trx id 336632 lock_mode X locks rec but not gapRecord lock, heap no 3 PHYSICAL RECORD: n_fields 6; compact format; info bits 0 0: len 8; hex 8000000000000002; asc ;; 1: len 6; hex 0000000522f0; asc &quot; ;; 2: len 7; hex 31000001721bc8; asc 1 r ;; 3: len 20; hex 3030303030303220202020202020202020202020; asc 0000002 ;; 4: len 2; hex 3030; asc 00;; 5: len 8; hex 3135343434202020; asc 15444 ;;*** (2) WAITING FOR THIS LOCK TO BE GRANTED:RECORD LOCKS space id 810 page no 3 n bits 72 index `PRIMARY` of table `checkaccount`.`t_acctsn_custno_pkid` trx id 336632 lock_mode X locks rec but not gap waitingRecord lock, heap no 2 PHYSICAL RECORD: n_fields 6; compact format; info bits 0 0: len 8; hex 8000000000000001; asc ;; 1: len 6; hex 0000000522f1; asc &quot; ;; 2: len 7; hex 32000001b423cc; asc 2 # ;; 3: len 20; hex 3030303030303120202020202020202020202020; asc 0000001 ;; 4: len 2; hex 3030; asc 00;; 5: len 8; hex 3537323520202020; asc 5725 ;;*** WE ROLL BACK TRANSACTION (2) 4) MySQL数据库隔离级别RC(READ COMMITTED) 2 知识准备 1 一条当前读的SQL语句，InnoDB与MySQL Server的交互，是一条一条进行的，因此，加锁也是一条一条进行的。先对一条满足条件的记录加锁，返回给MySQL Server，做一些DML操作；然后在读取下一条加锁，直至读取完毕。 2 RC级别下，由于custNo列上没有索引，因此只能走主键索引，进行全部扫描。主键索引上所有的记录，都被加上了X锁。无论记录是否满足条件，全部被加上X锁。既不是加表锁，也不是在满足条件的记录上加行锁。在实际的实现中，MySQL有一些改进，在MySQL Server过滤条件，发现不满足后，会调用unlock_row方法，把不满足条件的记录放锁 (违背了2PL的约束)。这样做，保证了最后只会持有满足条件记录上的锁，但是每条记录的加锁操作还是不能省略的。 3 死锁分析0)死锁日志分析 (1) TRANSACTION (select acctSN+1 from t_acctsn_custno_pkid where custNo = ‘0000001’ for update) 共需3个锁(LOCK WAIT 3 lock struct(s)),其中1个表级意向写锁 IX ,2个行锁(2 row lock(s))。发生死锁时在尝试获取主键索引上(index PRIMARY) 某一行的X锁(table checkaccount.t_acctsn_custno_pkid trx id 336633 lock_mode X locks rec)这一行的内容为 1 0000002 00 15444( 0: len 8; hex 8000000000000002; asc ;;1: len 6; hex 0000000522f0; asc “ ;;2: len 7; hex 31000001721bc8; asc 1 r ;;3: len 20; hex 3030303030303220202020202020202020202020; asc 0000002 ;;4: len 2; hex 3030; asc 00;;5: len 8; hex 3135343434202020; asc 15444 ;;注意asc后的内容为行中每列的内容的ASCII码) (2) TRANSACTION (update t_acctsn_custno_pkid set acctSN=’15445’ where custNo = ‘0000002’) 共需3个锁(LOCK WAIT 3 lock struct(s)),其中1个表级意向写锁 IX ,2个行锁(2 row lock(s))。发生死锁时在已经持有主键索引上(index PRIMARY) 某一行的X锁(t table checkaccount.t_acctsn_custno_pkid trx id 336632 lock_mode X locks rec)。这一行的内容为 1 0000002 00 15444。并且发生死锁时在尝试获取主键索引上(index PRIMARY) 某一行的X锁table checkaccount.t_acctsn_custno_pkid trx id 336632 lock_mode X locks rec)。这一行的内容为 2 0000001 00 5725.注1：死锁日志中(1) TRANSACTION中并不显示已持有的锁信息注2：死锁日志分析中红字部分与表数据中的id列不对应，经过多次实验(2: len 7; hex 31000001721bc8; asc 1 r ;;)这一列asc 后的内容并不显示不固定，有时是数字有时是字母有时是符号，推测与id有关但是显示的并不是id的值，估计与id列类型(id bigint(20) NOT NULL AUTO_INCREMENT,)有关系。 1)事物时序分析 Transaction1 Transaction2 （select acctSN+1 from t_acctsn_custno_pkid where custNo = ‘0000002’ for update）1 对主键索引上所有行一行一行的加X锁2释放custNo 为 ‘0000001’的行上的X锁保留custNo 为 ‘0000002’的行上的X锁 （select acctSN+1 from t_acctsn_custno_pkid where custNo = ‘0000001’ for update）3对主键索引上所有行一行一行的加X锁，首先先对主键索引上custno为0000001的行加X锁4 尝试获取主键索引上custno为0000002上的X锁 （update t_acctsn_custno_pkid set acctSN=’15445’ where custNo = ‘0000002’）5对主键索引上所有行一行一行的加X锁，尝试获取主键索引上custno为0000001上的X锁 注3：根据前面的知识储备，及对死锁日志的分析，在上表的时序下满足了死锁产生的条件。 4 解决方法根据以上分析，绕了一大圈解决方法其实很简单 在custNo上加索引即可，其实custNo作为查询条件是应该有索引的，上线的同学疏忽了，造成了比较严重的线上故障，引以为戒。]]></content>
