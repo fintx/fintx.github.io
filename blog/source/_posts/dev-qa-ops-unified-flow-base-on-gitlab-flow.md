@@ -12,7 +12,7 @@ description: "完善的上线流程是系统稳定的重要保证"
 
 很多中小型的初创公司使用Gitlab管理自己的代码，想必大家在项目的开发上线中也踩过了很多坑。作为一个过来人选择了Gitlab官方推荐的带有环境分支Gitlab flow（Environment branches with GitLab flow）的最佳实践作为基础，为研发、质量保证和运维团队制定了统一的上线流程。
 
-![开发-测试-运维统一上线流程](uploads/dev-qa-ops-unified-flow-base-on-gitlab-flow/UnifiedFlow.jpg)
+![开发-测试-运维统一上线流程](./uploads/posts/dev-qa-ops-unified-flow-base-on-gitlab-flow/UnifiedFlow.jpg)
 
 ### 一般原则
 - 分支分为永久分支和临时分支，都是在master分支以外建立。
