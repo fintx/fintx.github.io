@@ -23,7 +23,7 @@ description: "7X24服务是金融系统应具备的基本能力"
 账号|上期余额|上期借发生额|上期贷发生额|余额|借发生额|贷发生额|最终交易日期
  -|-|-|-|-|-|-|-
  account_no|last_balance|last_dr_trans_amt|last_cr_trans_amt|balance|dr_trans_amt|cr_trans_amt|latest_trans_date
-这里也是一个简化模型引入了借贷发生额供大家思考，完整实现请参考FinTx的开源账务系统。
-补充一份关于7X24服务实现的文档[银行核心系统7x24方案](./uploads/posts/7x24-continuous-accounting-system/银行核心系统7x24方案.pdf)参考，来源于网络，如有侵权请联系。
+这里也是一个简化模型引入了借贷发生额有时间再详细写，完整实现请先参考FinTx的开源账务系统。[fintx-accounting](https://github.com/fintx/fintx-accounting)
 
+补充一份关于7X24服务实现的文档[银行核心系统7x24方案](./uploads/posts/7x24-continuous-accounting-system/银行核心系统7x24方案.pdf)参考，来源于网络，如有侵权请联系。
 欢迎在GitHub上关注FinTx的开源账务系统：[fintx-accounting](https://github.com/fintx/fintx-accounting)
