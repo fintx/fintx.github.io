@@ -4,7 +4,7 @@ date: 2017-08-15 19:11:23
 categories: Misc
 tags: [id]
 comments: true
-description: "很久之前给同事做的一次分享"
+description: "分布式唯一ID是金融系统绕不开的问题"
 ---
 ### ID生成一般要符合如下几个原则
 - 1 全局唯一
