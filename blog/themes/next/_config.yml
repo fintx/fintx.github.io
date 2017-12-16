@@ -65,7 +65,7 @@ menu:
   archives: /archives/ || archive
   #schedule: /schedule/ || calendar
   sitemap: /sitemap.xml || sitemap
-  #commonweal: /404/ || heartbeat
+  commonweal: /404.html || heartbeat
 
 # Enable/Disable menu icons.
 menu_icons:
@@ -126,7 +126,7 @@ toc:
   enable: true
 
   # Automatically add list number to toc.
-  number: true
+  number: false
 
   # If true, all words will placed on next lines if header width longer then sidebar width.
   wrap: false
