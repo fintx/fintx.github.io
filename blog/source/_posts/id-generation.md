@@ -105,7 +105,7 @@ MongoDB使用12byte数据结构，16进制编码24个字符。结构上与UUID v
 - [X] 有内涵
 
 ### FinTx的分布式唯一ID生成方案
-fintx-identifer采用了类似ObjectId的方案，使用15byte数据结构，将machine扩展为48bit使网卡MAC地址作为机器唯一标识保证绝对唯一。处理了时间回调问题。并且采用64进制（Base64）编码字符串，将长度控制在20个字符。由于Base64的字符在UTF-8编码下只占1byte。UTF-8编码的20字符（20byte）唯一ID比UUID(32byte)减少37.5%。
+fintx-identifer采用了类似ObjectId的方案，使用15byte数据结构，将machine扩展为48bit使网卡MAC地址作为机器唯一标识保证绝对唯一。处理了时间回调问题。并且采用64进制（Base64）编码字符串，将长度控制在20个字符。由于Base64的字符在UTF-8编码下只占1byte。UTF-8编码的20字符（20byte）唯一ID比UUID的32字符(32byte)减少37.5%。
 <table border="1">
 <caption>UniqueId layout</caption>
 <tr>
