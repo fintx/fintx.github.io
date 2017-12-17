@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.fintx.org/20170815-id-generation.html</loc>
+    
+    <lastmod>2017-12-17T01:37:29.505Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fintx.org/20170725-7x24-continuous-accounting-system.html</loc>
+    
+    <lastmod>2017-12-16T14:11:11.274Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.fintx.org/20170730-introduction-of-accounting-system.html</loc>
     
     <lastmod>2017-12-16T14:07:01.950Z</lastmod>
@@ -9,23 +23,9 @@
   </url>
   
   <url>
-    <loc>http://www.fintx.org/20170815-id-generation.html</loc>
-    
-    <lastmod>2017-12-16T14:06:33.339Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fintx.org/20170804-general-business-architecture.html</loc>
     
     <lastmod>2017-12-16T11:45:13.484Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fintx.org/20170725-7x24-continuous-accounting-system.html</loc>
-    
-    <lastmod>2017-12-14T17:38:19.901Z</lastmod>
     
   </url>
   

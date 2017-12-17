@@ -79,7 +79,7 @@
 <meta property="og:site_name" content="FinTx">
 <meta property="og:description" content="分布式唯一ID是金融系统绕不开的问题">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-16T14:06:33.339Z">
+<meta property="og:updated_time" content="2017-12-17T01:37:29.505Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="谈谈ID生成方案">
 <meta name="twitter:description" content="分布式唯一ID是金融系统绕不开的问题">
@@ -461,8 +461,8 @@
 <li>[] 高性能</li>
 <li>[X] 有内涵（仅时间戳有意义）</li>
 </ul>
-<h4 id="6-ObjectId"><a href="#6-ObjectId" class="headerlink" title="6 ObjectId"></a>6 ObjectId</h4><p>MongoDB使用12byte数据结构，16进制编码24个字符。结构上与UUID version 1类似，但是做了一定的改进。    </p>
-<table border="1"><br>    <caption>ObjectID layout</caption><br>      <tr><br>          <td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><br>      </tr><br>     <tr><br>          <td colspan="4">time</td><td colspan="3">machine</td> <td colspan="2">pid</td><td colspan="3">inc</td><br>      </tr><br>  </table>
+<h4 id="6-ObjectId"><a href="#6-ObjectId" class="headerlink" title="6 ObjectId"></a>6 ObjectId</h4><p>MongoDB使用12byte数据结构，16进制编码24个字符。结构上与UUID version 1类似，但是做了一定的改进。</p>
+<table border="1"><br><caption>ObjectID layout</caption><br><tr><br><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><br></tr><br><tr><br><td colspan="4">time</td><td colspan="3">machine</td> <td colspan="2">pid</td><td colspan="3">inc</td><br></tr><br></table>
 
 <p>虽然由于inc采用随机数初始值大大降低了重复的可能性，但是由于machine采用hash值，理论上还是有可能产生重复ID。可能是考虑到inc随机数初始值的前提下可能性不大，且inc递增使时间回调有一定容忍性（回调n秒时峰值不超过2^24/(n+1)的前提下依能保证唯一），ObjectID也没有考虑时间回调的问题。一切系统放大到一定规模的时候，不太可能出现的问题就一定会出现。<br>优缺点：</p>
 <ul>
