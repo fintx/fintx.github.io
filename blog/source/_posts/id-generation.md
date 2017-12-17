@@ -83,17 +83,16 @@ UUID version 4 是基于安全随机数算法构造的，是jdk默认的UUID实�
 - [X] 有内涵（仅时间戳有意义）
 
 #### 6 ObjectId
-MongoDB使用12byte数据结构，16进制编码24个字符。结构上与UUID version 1类似，但是做了一定的改进。    
-
+MongoDB使用12byte数据结构，16进制编码24个字符。结构上与UUID version 1类似，但是做了一定的改进。
 <table border="1">
-    <caption>ObjectID layout</caption>
-      <tr>
-          <td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td>
-      </tr>
-     <tr>
-          <td colspan="4">time</td><td colspan="3">machine</td> <td colspan="2">pid</td><td colspan="3">inc</td>
-      </tr>
-  </table>
+<caption>ObjectID layout</caption>
+<tr>
+<td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td>
+</tr>
+<tr>
+<td colspan="4">time</td><td colspan="3">machine</td> <td colspan="2">pid</td><td colspan="3">inc</td>
+</tr>
+</table>
   
 虽然由于inc采用随机数初始值大大降低了重复的可能性，但是由于machine采用hash值，理论上还是有可能产生重复ID。可能是考虑到inc随机数初始值的前提下可能性不大，且inc递增使时间回调有一定容忍性（回调n秒时峰值不超过2^24/(n+1)的前提下依能保证唯一），ObjectID也没有考虑时间回调的问题。一切系统放大到一定规模的时候，不太可能出现的问题就一定会出现。
 优缺点：
@@ -107,7 +106,6 @@ MongoDB使用12byte数据结构，16进制编码24个字符。结构上与UUID v
 
 ### FinTx的分布式唯一ID生成方案
 fintx-identifer采用了类似ObjectId的方案，使用15byte数据结构，将machine扩展为48bit使网卡MAC地址作为机器唯一标识保证绝对唯一。处理了时间回调问题。并且采用64进制（Base64）编码字符串，将长度控制在20个字符。
-
 <table border="1">
 <caption>UniqueId layout</caption>
 <tr>
