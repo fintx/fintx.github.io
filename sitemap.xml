@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.fintx.org/20170730-introduction-of-accounting-system.html</loc>
+    
+    <lastmod>2017-12-16T14:07:01.950Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fintx.org/20170815-id-generation.html</loc>
+    
+    <lastmod>2017-12-16T14:06:33.339Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fintx.org/20170804-general-business-architecture.html</loc>
+    
+    <lastmod>2017-12-16T11:45:13.484Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.fintx.org/20170725-7x24-continuous-accounting-system.html</loc>
     
     <lastmod>2017-12-14T17:38:19.901Z</lastmod>
@@ -9,30 +30,9 @@
   </url>
   
   <url>
-    <loc>http://www.fintx.org/20170730-introduction-of-accounting-system.html</loc>
-    
-    <lastmod>2017-12-14T17:31:01.026Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fintx.org/20170705-dev-qa-ops-unified-flow-base-on-gitlab-flow.html</loc>
     
     <lastmod>2017-12-14T17:30:48.268Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fintx.org/20170730-general-technology-archetecture.html</loc>
-    
-    <lastmod>2017-12-14T17:12:48.271Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fintx.org/20170730-general-business-archetecture.html</loc>
-    
-    <lastmod>2017-12-14T17:08:46.767Z</lastmod>
     
   </url>
   
@@ -46,7 +46,7 @@
   <url>
     <loc>http://www.fintx.org/20170723-deadlock-analysis-of-mysql-1.html</loc>
     
-    <lastmod>2017-12-13T17:01:35.932Z</lastmod>
+    <lastmod>2017-12-14T15:57:03.699Z</lastmod>
     
   </url>
   
