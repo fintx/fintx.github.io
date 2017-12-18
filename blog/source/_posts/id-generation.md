@@ -1,8 +1,8 @@
 ---
 title: 谈谈ID生成方案
 date: 2017-08-15 19:11:23
-categories: Misc
-tags: [id]
+categories: Design
+tags: [id,technology]
 comments: true
 description: "分布式唯一ID是金融系统绕不开的问题"
 ---
