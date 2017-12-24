@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.fintx.org/20170628-thinking-about-business-and-technology.html</loc>
+    
+    <lastmod>2017-12-24T09:43:46.483Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.fintx.org/20170815-id-generation.html</loc>
     
     <lastmod>2017-12-17T15:11:51.498Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>http://www.fintx.org/20170705-dev-qa-ops-unified-flow-base-on-gitlab-flow.html</loc>
     
     <lastmod>2017-12-14T17:30:48.268Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fintx.org/20170628-thinking-about-business-and-technology.html</loc>
-    
-    <lastmod>2017-12-14T16:54:11.002Z</lastmod>
     
   </url>
   
