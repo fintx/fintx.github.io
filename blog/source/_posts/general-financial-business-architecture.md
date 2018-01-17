@@ -6,6 +6,6 @@ tags: [architecture,business]
 comments: true
 description: "互联网金融公司的完整业务体系"
 ---
-![互联网金融公司整体业务架构](./uploads/posts/general-business-architecture/general-business-architecture.jpg)
+![互联网金融公司整体业务架构](./uploads/posts/general-business-architecture/general-business-architecture.png)
 
 欢迎在GitHub上关注FinTx开源金融系统：[FinTx](https://github.com/fintx)
