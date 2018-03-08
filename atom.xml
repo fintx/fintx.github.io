@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.fintx.org/"/>
-  <updated>2017-12-17T15:10:52.308Z</updated>
+  <updated>2018-03-08T14:30:12.761Z</updated>
   <id>http://www.fintx.org/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://www.fintx.org/20170827-finacial-system-design-principle.html"/>
     <id>http://www.fintx.org/20170827-finacial-system-design-principle.html</id>
     <published>2017-08-27T02:13:20.000Z</published>
-    <updated>2017-12-17T15:10:52.308Z</updated>
+    <updated>2018-03-08T14:30:12.761Z</updated>
     
     <content type="html"><![CDATA[<h3 id="1-留痕"><a href="#1-留痕" class="headerlink" title="1 留痕"></a>1 留痕</h3><p>对所有的登陆，退出，请求，响应，业务处理都要记录历史信息。方便风控，审计，追溯，定位。</p><h3 id="2-安全"><a href="#2-安全" class="headerlink" title="2 安全"></a>2 安全</h3><p>对金融数据做到防篡改，防解析，防获取。默认不信任任何外来请求，数据…</p><h3 id="3-一致"><a href="#3-一致" class="headerlink" title="3 一致"></a>3 一致</h3><p>系统内强一致性与最终一致性相结合使用。系统间完善对账机制。</p><h3 id="4-接口"><a href="#4-接口" class="headerlink" title="4 接口"></a>4 接口</h3><p>无论系统内还是系统间，带超时的同步接口，查询/异步通知接口，撤销接口，配合定时补偿机制，结合使用。</p><h3 id="5-标识"><a href="#5-标识" class="headerlink" title="5 标识"></a>5 标识</h3><p>request要有RequestId，responseId，业务要有businessId…，对每一次变化，都可识别。</p><h3 id="6-去重"><a href="#6-去重" class="headerlink" title="6 去重"></a>6 去重</h3><p>请求去重，反馈去重，业务去重，对每一次变化，都有机制保证不重复处理，保证结果正确。</p><h3 id="7-风控"><a href="#7-风控" class="headerlink" title="7 风控"></a>7 风控</h3><p>风控针对所有用户。不仅包括所有客户，也包括所有内部用户。</p><h3 id="8-合规"><a href="#8-合规" class="headerlink" title="8 合规"></a>8 合规</h3><p>在国内的大环境下，对于有一定规模或有一定追求的金融公司，监管是不得不面对的问题。尤其是对互联网金融企业，针对一些国家，地方的互联网监管规范要求，如《互联网金融统计制度》和其他一些报送要求。</p><p>欢迎在GitHub上关注FinTx开源金融系统：<a href="https://github.com/fintx" target="_blank" rel="external">FinTx</a></p>]]></content>
     
@@ -31,7 +31,7 @@
     
     </summary>
     
-      <category term="Design" scheme="http://www.fintx.org/categories/Design/"/>
+      <category term="Methodology" scheme="http://www.fintx.org/categories/Methodology/"/>
     
     
       <category term="technology" scheme="http://www.fintx.org/tags/technology/"/>
@@ -43,7 +43,7 @@
     <link href="http://www.fintx.org/20170815-id-generation.html"/>
     <id>http://www.fintx.org/20170815-id-generation.html</id>
     <published>2017-08-15T11:11:23.000Z</published>
-    <updated>2017-12-17T15:11:51.498Z</updated>
+    <updated>2018-03-08T14:30:09.141Z</updated>
     
     <content type="html"><![CDATA[<h3 id="ID生成一般要符合如下几个原则"><a href="#ID生成一般要符合如下几个原则" class="headerlink" title="ID生成一般要符合如下几个原则"></a>ID生成一般要符合如下几个原则</h3><ul><li>1 全局唯一<br>系统设计中对ID的唯一性需求非常普遍。尤其在分布式系统中，要辨别每一次请求是否重复，每一笔业务是否重复，都要求有唯一的ID来识别。对待系统问题查找，审计等有唯一的ID都可以大大简化工作难度和工作强度。</li><li>2 分布式：<br>能在本地分布式生成，不用经过网络获取。没有中心单点多点，不依赖于第三方，无限制扩展。这样才能保证ID最大的可靠性和便利性。</li><li>3 有序递增<br>ID有序对数据检索极为重要，现代数据库一般都采用B+树索引进行数据检索，有序的ID可以极大提升数据库的效率。递增则可满足排序需求。</li><li>4 时间相关<br>ID与时间相关不仅能保证有序递增的，也便于冷热数据的分离。时间相关的ID生成都会面临时间回调问题，要注意处理（保留上次的时间戳，和本次的时间戳比较）</li><li>5 长度短<br>ID长度越短其读写效率越高占用空间小，并且ID都会作为索引列，ID越短期生成的索引占用空间也越小。不考虑其他情况的前提下64bit的long型是最佳选择。</li><li>6 高性能<br>可能的条件下性能尽可能高，以满足大规模超大规模交易需求。单点每秒百万以上的性能才能称为高性能。</li><li>7 有内涵<br>ID的每一部分都有含义，比如包含时间 机器甚至业务信息，便于跟踪定位。尤其在分布式系统下，对线上问题查找原因有极大的帮助。</li></ul><h3 id="目前有如下一些主流的ID生成方案"><a href="#目前有如下一些主流的ID生成方案" class="headerlink" title="目前有如下一些主流的ID生成方案"></a>目前有如下一些主流的ID生成方案</h3><h4 id="1-MySQL自增主键-autoincreasement-id"><a href="#1-MySQL自增主键-autoincreasement-id" class="headerlink" title="1 MySQL自增主键  autoincreasement id"></a>1 MySQL自增主键  autoincreasement id</h4><p>在MySQL中单表自增主键是最高效的数据库索引，通过单库顺序自增或者多库设定不同的offset和increament来保证ID唯一性。但要在数据存入之后再从数据库取回，不便且面临网络可靠性的风险。默认性能不高单库很难突破千/s级别，多库情况下扩展困难。<br>优缺点：</p><ul><li>[X] 全局唯一</li><li>[] 分布式</li><li>[X] 有序递增（仅单库）</li><li>[] 时间相关</li><li>[X] 长度短</li><li>[] 高性能</li><li>[] 有内涵</li></ul><h4 id="2-数据库Sequence"><a href="#2-数据库Sequence" class="headerlink" title="2 数据库Sequence"></a>2 数据库Sequence</h4><p>MySQL并不像DB2 oracle有现成的Sequence特性。它是通过数据表+数据库函数方式实现的Sequence。同样也可以通过设定“current_value”和“increment”的方式多库生成。具体方法网上很多但是大部分都是有问题的，并发条件下会有重复ID。这里提供一个完整的方案 <a href="./uploads/posts/id-generation/t_sequence.sql">t_sequence.sql</a>。默认性能不高也是很难突破千/s级别，多库扩展困难。但是可以使用获得的ID做基础，在本地附加本地顺序号进行二次分配提高性能。如获取1则在本地可分配[1000,1999]以此提高性能，实现会麻烦一些。<br>优缺点：</p><ul><li>[X] 全局唯一</li><li>[] 分布式</li><li>[X] 有序递增（仅单库）</li><li>[] 时间相关</li><li>[X] 长度短</li><li>[] 高性能</li><li>[] 有内涵</li></ul><h4 id="3-Redis"><a href="#3-Redis" class="headerlink" title="3 Redis"></a>3 Redis</h4><p>利用Redis单线程模型，获取自增ID。与数据库Sequence类似，也可通过使用不同初始offset和increment来扩展。不过引入了对Redis的依赖。默认但节点性能万/s-十万/s，同样可进行本地二次分配。<br>优缺点：</p><ul><li>[X] 全局唯一</li><li>[] 分布式</li><li>[X] 有序递增（仅单库）</li><li>[] 时间相关</li><li>[X] 长度短</li><li>[] 高性能</li><li>[] 有内涵</li></ul><h4 id="4-UUID"><a href="#4-UUID" class="headerlink" title="4 UUID"></a>4 UUID</h4><p>UUID有不同的版本，常见version 1 和 version 4。参见 <a href="http://www.ietf.org/rfc/rfc4122.txt" target="_blank" rel="external">RFC4122</a>。UUID长度32字符。<br>UUID version 1 是基于时间 机器地址 本地序列号构造。<br>UUID version 4 是基于安全随机数算法构造的，是jdk默认的UUID实现。<br>优缺点：</p><ul><li>[X] 全局唯一</li><li>[X] 分布式</li><li>[X] 有序递增（仅version 1，单节点）</li><li>[X] 时间相关（仅version 1）</li><li>[] 长度短</li><li>[X] 高性能</li><li>[] 有内涵（仅version 1）</li></ul><h4 id="5-snowflake"><a href="#5-snowflake" class="headerlink" title="5 snowflake"></a>5 snowflake</h4><p>64bit的long型分布式ID生成。ID中包含时间戳和自增序列。但是依赖于中心分配DataCenterID 和 Worker ID<br>优缺点：</p><ul><li>[X] 全局唯一</li><li>[] 分布式</li><li>[X] 有序递增（单节点）</li><li>[X] 时间相关</li><li>[X] 长度短</li><li>[] 高性能</li><li>[X] 有内涵（仅时间戳有意义）</li></ul><h4 id="6-ObjectId"><a href="#6-ObjectId" class="headerlink" title="6 ObjectId"></a>6 ObjectId</h4><p>MongoDB使用12byte数据结构，16进制编码24个字符。结构上与UUID version 1类似，但是做了一定的改进。</p><table border="1"><br><caption>ObjectID layout</caption><br><tr><br><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><br></tr><br><tr><br><td colspan="4">time</td><td colspan="3">machine</td> <td colspan="2">pid</td><td colspan="3">inc</td><br></tr><br></table><p>虽然由于inc采用随机数初始值大大降低了重复的可能性，但是由于machine采用hash值，理论上还是有可能产生重复ID。可能是考虑到inc随机数初始值的前提下可能性不大，且inc递增使时间回调有一定容忍性（回调n秒时峰值不超过2^24/(n+1)的前提下依能保证唯一），ObjectID也没有考虑时间回调的问题。一切系统放大到一定规模的时候，不太可能出现的问题就一定会出现。<br>优缺点：</p><ul><li>[] 全局唯一</li><li>[X] 分布式</li><li>[X] 有序递增（单节点）</li><li>[X] 时间相关</li><li>[] 长度短</li><li>[X] 高性能</li><li>[X] 有内涵</li></ul><h3 id="FinTx的分布式唯一ID生成方案"><a href="#FinTx的分布式唯一ID生成方案" class="headerlink" title="FinTx的分布式唯一ID生成方案"></a>FinTx的分布式唯一ID生成方案</h3><p>fintx-identifer采用了类似ObjectId的方案，使用15byte数据结构，将machine扩展为48bit使网卡MAC地址作为机器唯一标识保证绝对唯一。处理了时间回调问题。并且采用64进制（Base64）编码字符串，将长度控制在20个字符。由于Base64的字符在UTF-8编码下只占1byte。UTF-8编码的20字符（20byte）唯一ID比UUID的32字符(32byte)减少37.5%。</p><table border="1"><br><caption>UniqueId layout</caption><br><tr><br><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><br></tr><br><tr><br><td colspan="4">time</td><td colspan="6">machine</td><td colspan="2">pid</td><td colspan="3">counter</td><br></tr><br></table><p>优缺点：    </p><ul><li>[X] 全局唯一（全球唯一）</li><li>[X] 分布式</li><li>[X] 有序递增（单节点）</li><li>[X] 时间相关</li><li>[] 长度短</li><li>[X] 高性能</li><li>[X] 有内涵</li></ul><p>欢迎在GitHub上关注FinTx开源的唯一ID生成方案：<a href="https://github.com/fintx/fintx-identifer" target="_blank" rel="external">fintx-identifer</a></p>]]></content>
     
@@ -53,7 +53,7 @@
     
     </summary>
     
-      <category term="Design" scheme="http://www.fintx.org/categories/Design/"/>
+      <category term="Methodology" scheme="http://www.fintx.org/categories/Methodology/"/>
     
     
       <category term="technology" scheme="http://www.fintx.org/tags/technology/"/>
@@ -63,13 +63,13 @@
   </entry>
   
   <entry>
-    <title>互联网金融公司整体业务架构</title>
-    <link href="http://www.fintx.org/20170804-general-business-architecture.html"/>
-    <id>http://www.fintx.org/20170804-general-business-architecture.html</id>
+    <title>互联网金融整体业务架构</title>
+    <link href="http://www.fintx.org/20170804-online-financial-business-architecture.html"/>
+    <id>http://www.fintx.org/20170804-online-financial-business-architecture.html</id>
     <published>2017-08-04T13:25:50.000Z</published>
-    <updated>2017-12-16T11:45:13.484Z</updated>
+    <updated>2018-01-17T14:33:26.254Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="./uploads/posts/general-business-architecture/general-business-architecture.jpg" alt="互联网金融公司整体业务架构"></p><p>欢迎在GitHub上关注FinTx开源金融系统：<a href="https://github.com/fintx" target="_blank" rel="external">FinTx</a></p>]]></content>
+    <content type="html"><![CDATA[<p><img src="./uploads/posts/online-financial-business-architecture/online-financial-business-architecture.png" alt="互联网金融整体业务架构"></p><p>欢迎在GitHub上关注FinTx开源金融系统：<a href="https://github.com/fintx" target="_blank" rel="external">FinTx</a></p>]]></content>
     
     <summary type="html">
     
@@ -200,9 +200,9 @@
       <category term="Thinking" scheme="http://www.fintx.org/categories/Thinking/"/>
     
     
-      <category term="business" scheme="http://www.fintx.org/tags/business/"/>
-    
       <category term="technology" scheme="http://www.fintx.org/tags/technology/"/>
+    
+      <category term="business" scheme="http://www.fintx.org/tags/business/"/>
     
   </entry>
   

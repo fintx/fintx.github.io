@@ -2,23 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.fintx.org/20170628-thinking-about-business-and-technology.html</loc>
+    <loc>http://www.fintx.org/20170827-finacial-system-design-principle.html</loc>
     
-    <lastmod>2017-12-24T09:43:46.483Z</lastmod>
+    <lastmod>2018-03-08T14:30:12.761Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.fintx.org/20170815-id-generation.html</loc>
     
-    <lastmod>2017-12-17T15:11:51.498Z</lastmod>
+    <lastmod>2018-03-08T14:30:09.141Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.fintx.org/20170827-finacial-system-design-principle.html</loc>
+    <loc>http://www.fintx.org/20170804-online-financial-business-architecture.html</loc>
     
-    <lastmod>2017-12-17T15:10:52.308Z</lastmod>
+    <lastmod>2018-01-17T14:33:26.254Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fintx.org/20170628-thinking-about-business-and-technology.html</loc>
+    
+    <lastmod>2017-12-24T09:43:46.483Z</lastmod>
     
   </url>
   
@@ -33,13 +40,6 @@
     <loc>http://www.fintx.org/20170730-introduction-of-accounting-system.html</loc>
     
     <lastmod>2017-12-16T14:07:01.950Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fintx.org/20170804-general-business-architecture.html</loc>
-    
-    <lastmod>2017-12-16T11:45:13.484Z</lastmod>
     
   </url>
   
