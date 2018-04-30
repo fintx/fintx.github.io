@@ -1,7 +1,7 @@
 ---
 title: 账务核心系统介绍
 date: 2017-07-30 23:47:52
-categories: Accounting
+categories: Financial System
 tags: [accounting]
 comments: true
 description: "账务系统是金融公司核心的核心"
