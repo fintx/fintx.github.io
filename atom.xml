@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.fintx.org/"/>
-  <updated>2018-03-08T16:06:00.932Z</updated>
+  <updated>2018-04-30T14:57:08.292Z</updated>
   <id>http://www.fintx.org/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>银行核心系统及研发转型</title>
+    <link href="http://www.fintx.org/20180430-core-banking-system-and-it-development-transition.html"/>
+    <id>http://www.fintx.org/20180430-core-banking-system-and-it-development-transition.html</id>
+    <published>2018-04-30T15:47:52.000Z</published>
+    <updated>2018-04-30T14:57:08.292Z</updated>
+    
+    <content type="html"><![CDATA[<div class="row">    <embed src="./uploads/posts/core-banking-system-and-it-development-transition/银行核心系统及研发转型.pdf" width="100%" height="550" type="application/pdf"></div><p>欢迎在GitHub上关注FinTx的开源账务系统：<a href="https://github.com/fintx/fintx-accounting" target="_blank" rel="external">fintx-accounting</a></p>]]></content>
+    
+    <summary type="html">
+    
+      银行核心业务系统是银行处理最核心的存款，贷款，结算业务，中间业务的IT系统。
+    
+    </summary>
+    
+      <category term="Financial System" scheme="http://www.fintx.org/categories/Financial-System/"/>
+    
+    
+      <category term="banking" scheme="http://www.fintx.org/tags/banking/"/>
+    
+  </entry>
   
   <entry>
     <title>金融核心系统设计要点</title>
@@ -80,9 +102,9 @@
       <category term="Architecture" scheme="http://www.fintx.org/categories/Architecture/"/>
     
     
-      <category term="architecture" scheme="http://www.fintx.org/tags/architecture/"/>
-    
       <category term="business" scheme="http://www.fintx.org/tags/business/"/>
+    
+      <category term="architecture" scheme="http://www.fintx.org/tags/architecture/"/>
     
   </entry>
   
@@ -91,7 +113,7 @@
     <link href="http://www.fintx.org/20170730-introduction-of-accounting-system.html"/>
     <id>http://www.fintx.org/20170730-introduction-of-accounting-system.html</id>
     <published>2017-07-30T15:47:52.000Z</published>
-    <updated>2017-12-16T14:07:01.950Z</updated>
+    <updated>2018-04-30T15:33:09.440Z</updated>
     
     <content type="html"><![CDATA[<div class="row">    <embed src="./uploads/posts/introduction-of-accounting-system/账务核心系统介绍.pdf" width="100%" height="550" type="application/pdf"></div><p>欢迎在GitHub上关注FinTx的开源账务系统：<a href="https://github.com/fintx/fintx-accounting" target="_blank" rel="external">fintx-accounting</a></p>]]></content>
     
@@ -101,7 +123,7 @@
     
     </summary>
     
-      <category term="Accounting" scheme="http://www.fintx.org/categories/Accounting/"/>
+      <category term="Financial System" scheme="http://www.fintx.org/categories/Financial-System/"/>
     
     
       <category term="accounting" scheme="http://www.fintx.org/tags/accounting/"/>

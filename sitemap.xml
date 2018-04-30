@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.fintx.org/20170730-introduction-of-accounting-system.html</loc>
+    
+    <lastmod>2018-04-30T15:33:09.440Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fintx.org/20180430-core-banking-system-and-it-development-transition.html</loc>
+    
+    <lastmod>2018-04-30T14:57:08.292Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.fintx.org/20170827-finacial-system-design-principle.html</loc>
     
     <lastmod>2018-03-08T16:06:00.932Z</lastmod>
@@ -33,13 +47,6 @@
     <loc>http://www.fintx.org/20170628-thinking-about-business-and-technology.html</loc>
     
     <lastmod>2017-12-24T09:43:46.483Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fintx.org/20170730-introduction-of-accounting-system.html</loc>
-    
-    <lastmod>2017-12-16T14:07:01.950Z</lastmod>
     
   </url>
   
