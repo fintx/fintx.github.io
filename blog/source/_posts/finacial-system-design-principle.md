@@ -1,9 +1,9 @@
 ---
 title: 金融核心系统设计要点
 date: 2017-08-27 10:13:20
-categories: Financial System
+categories: System Design
 tags: [technology]
-comments: true
+comments: false
 description: "准确，合规，安全，可追溯"
 ---
 ### 1 留痕

@@ -2,8 +2,8 @@
 title: 基于GitLab Flow 的开发/测试/运维统一上线流程
 date: 2017-07-05 20:04:08
 categories: DevOps
-tags: [development,operations,devops]
-comments: true
+tags: [development,operations]
+comments: false
 description: "完善的上线流程是系统稳定的重要保证"
 ---
 
