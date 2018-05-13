@@ -2,7 +2,7 @@
 title: 计息方法及金融计算总结
 date: 2018-05-12 22:47:52
 categories: Knowledge
-tags: [interest]
+tags: [accrual,calculation]
 comments: false
 description: "计息方法和金融计算注意事项的总结"
 ---

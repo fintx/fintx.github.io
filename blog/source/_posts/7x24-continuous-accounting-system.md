@@ -2,7 +2,7 @@
 title: 无日切，动账更新的7X24小时的账务系统设计
 date: 2017-07-25 19:11:13
 categories: System Design
-tags: [accounting]
+tags: [accounting,design]
 comments: false
 description: "7X24服务是金融系统应具备的基本能力"
 ---
