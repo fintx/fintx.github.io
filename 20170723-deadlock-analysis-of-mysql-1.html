@@ -5,12 +5,15 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
+
+
+
 
 
 
@@ -38,10 +41,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
 
 
 
@@ -50,39 +49,25 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="database,mysql,deadlock," />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-next.png?v=6.2.0">
 
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32-next.png?v=6.2.0">
 
 
-
-  <link rel="alternate" href="/atom.xml" title="FinTx" type="application/atom+xml" />
-
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16-next.png?v=6.2.0">
 
 
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+  <link rel="mask-icon" href="/logo.svg?v=6.2.0" color="#222">
 
 
 
 
 
 
-<meta name="description" content="一次真实线上故障的总结">
-<meta name="keywords" content="database,mysql,deadlock">
-<meta property="og:type" content="article">
-<meta property="og:title" content="MySQL线上死锁问题分析一例">
-<meta property="og:url" content="http://www.fintx.org/20170723-deadlock-analysis-of-mysql-1.html">
-<meta property="og:site_name" content="FinTx">
-<meta property="og:description" content="一次真实线上故障的总结">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-14T15:57:03.699Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySQL线上死锁问题分析一例">
-<meta name="twitter:description" content="一次真实线上故障的总结">
 
 
 
@@ -91,15 +76,13 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    version: '5.1.2',
-    sidebar: {"position":"left","display":"always","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -111,12 +94,40 @@
 </script>
 
 
+  
+
+
+
+
+  <meta name="description" content="一次真实线上故障的总结">
+<meta name="keywords" content="database,mysql,deadlock">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL线上死锁问题分析一例">
+<meta property="og:url" content="http://www.fintx.org/20170723-deadlock-analysis-of-mysql-1.html">
+<meta property="og:site_name" content="FinTx">
+<meta property="og:description" content="一次真实线上故障的总结">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-13T13:37:43.145Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL线上死锁问题分析一例">
+<meta name="twitter:description" content="一次真实线上故障的总结">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="FinTx" type="application/atom+xml" />
+
+
+
 
   <link rel="canonical" href="http://www.fintx.org/20170723-deadlock-analysis-of-mysql-1.html"/>
 
 
 
-
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
   <title>MySQL线上死锁问题分析一例 | FinTx</title>
   
@@ -128,9 +139,37 @@
 
 
 
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -146,7 +185,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">FinTx</span>
         <span class="logo-line-after"><i></i></span>
@@ -158,7 +197,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -166,96 +205,83 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-sitemap">
-          <a href="/sitemap.xml" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
-            
-            站点地图
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
         
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
-            
-            公益404
-          </a>
-        </li>
-      
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+    <a href="/sitemap.xml" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />站点地图</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404.html" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />公益 404</a>
+  </li>
 
+      
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            搜索
-          </a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
         </li>
       
     </ul>
+  
+
   
 
   
@@ -286,12 +312,23 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
 
@@ -304,6 +341,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -314,7 +353,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="fintxorg">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="image" content="/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -326,11 +365,19 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">MySQL线上死锁问题分析一例</h2>
+          <h2 class="post-title" itemprop="name headline">MySQL线上死锁问题分析一例
+              
+            
+          </h2>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -338,13 +385,30 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-23T16:18:04+08:00">
-                2017-07-23
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-07-23 16:18:04" itemprop="dateCreated datePublished" datetime="2017-07-23T16:18:04+08:00">2017-07-23</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-13 21:37:43" itemprop="dateModified" datetime="2018-05-13T21:37:43+08:00">2018-05-13</time>
+              
             
           </span>
 
@@ -360,11 +424,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Database/" itemprop="url" rel="index">
-                    <span itemprop="name">Database</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a></span>
 
                 
                 
@@ -373,8 +433,6 @@
           
 
           
-            
-          
 
           
           
@@ -384,9 +442,7 @@
           
 
           
-              <div class="post-description">
-                  一次真实线上故障的总结
-              </div>
+              <div class="post-description">一次真实线上故障的总结</div>
           
 
         </div>
@@ -402,7 +458,7 @@
       
 
       
-        <h3 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1 问题描述"></a>1 问题描述</h3><h4 id="0-表结构"><a href="#0-表结构" class="headerlink" title="0)表结构:"></a>0)表结构:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE `t_acctsn_custno_pkid` (</div><div class="line">  `CustNo` char(20) COLLATE utf8_bin NOT NULL,</div><div class="line">  `CustType` char(2) COLLATE utf8_bin NOT NULL,</div><div class="line">  `AcctSN` char(8) COLLATE utf8_bin NOT NULL,</div><div class="line">  `id` bigint(20) NOT NULL AUTO_INCREMENT,</div><div class="line">  PRIMARY KEY (`id`)</div><div class="line">) ENGINE=InnoDB;</div></pre></td></tr></table></figure>
+        <h3 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1 问题描述"></a>1 问题描述</h3><h4 id="0-表结构"><a href="#0-表结构" class="headerlink" title="0)表结构:"></a>0)表结构:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE `t_acctsn_custno_pkid` (</span><br><span class="line">  `CustNo` char(20) COLLATE utf8_bin NOT NULL,</span><br><span class="line">  `CustType` char(2) COLLATE utf8_bin NOT NULL,</span><br><span class="line">  `AcctSN` char(8) COLLATE utf8_bin NOT NULL,</span><br><span class="line">  `id` bigint(20) NOT NULL AUTO_INCREMENT,</span><br><span class="line">  PRIMARY KEY (`id`)</span><br><span class="line">) ENGINE=InnoDB;</span><br></pre></td></tr></table></figure>
 <h4 id="1-表数据"><a href="#1-表数据" class="headerlink" title="1)表数据"></a>1)表数据</h4><table>
 <thead>
 <tr>
@@ -427,8 +483,8 @@
 </tr>
 </tbody>
 </table>
-<h4 id="2-问题程序示意"><a href="#2-问题程序示意" class="headerlink" title="2)问题程序示意"></a>2)问题程序示意</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> concurrency = <span class="number">5</span>;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> c = <span class="number">0</span>; c &lt; concurrency; c++) &#123;</div><div class="line">	<span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">		<span class="meta">@Override</span></div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">			<span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">				Connection conn = <span class="keyword">null</span>;</div><div class="line">				<span class="keyword">try</span> &#123;</div><div class="line">					conn = DBUtil.getTxnConnection();</div><div class="line">					PreparedStatement ps = DBUtil.getPreparedStatement(conn,</div><div class="line">							<span class="string">"select acctSN+1 from t_acctsn_custno_pkid where custNo = ? for update"</span>);</div><div class="line">					ps.setString(<span class="number">1</span>, <span class="string">"0000001"</span>);</div><div class="line">					ResultSet rs = ps.executeQuery();</div><div class="line">					DBUtil.closePreparedStatement(ps);</div><div class="line">					</div><div class="line">					ps = DBUtil.getPreparedStatement(conn,</div><div class="line">							<span class="string">"update  t_acctsn_custno_pkid  set acctSN=?  where custNo = ? "</span>);</div><div class="line">					ps.setString(<span class="number">1</span>, acctSN);</div><div class="line">					ps.setString(<span class="number">2</span>, <span class="string">"0000001"</span>);</div><div class="line">					ps.executeUpdate();</div><div class="line">					DBUtil.closePreparedStatement(ps);</div><div class="line">					</div><div class="line">					DBUtil.closeTxnConnection(conn, <span class="keyword">true</span>);</div><div class="line">				&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">					e.printStackTrace();</div><div class="line">					<span class="keyword">if</span> (<span class="keyword">null</span> != conn) &#123;</div><div class="line">						DBUtil.closeTxnConnection(conn, <span class="keyword">false</span>);</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line"></div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;).start();</div><div class="line"></div><div class="line">	<span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">		<span class="meta">@Override</span></div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">			<span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">				Connection conn = <span class="keyword">null</span>;</div><div class="line">				<span class="keyword">try</span> &#123;</div><div class="line">					conn = DBUtil.getTxnConnection();</div><div class="line">					PreparedStatement ps = DBUtil.getPreparedStatement(conn,</div><div class="line">							<span class="string">"select acctSN+1 from t_acctsn_custno_pkid where custNo = ? for update"</span>);</div><div class="line">					ps.setString(<span class="number">1</span>, <span class="string">"0000002"</span>);</div><div class="line">					ResultSet rs = ps.executeQuery();</div><div class="line">					DBUtil.closePreparedStatement(ps);</div><div class="line">					</div><div class="line">					ps = DBUtil.getPreparedStatement(conn,</div><div class="line">							<span class="string">" update  t_acctsn_custno_pkid  set acctSN=?  where custNo = ? "</span>);</div><div class="line">					ps.setString(<span class="number">1</span>, acctSN);</div><div class="line">					ps.setString(<span class="number">2</span>, <span class="string">"0000002"</span>);</div><div class="line">					ps.executeUpdate();</div><div class="line">					DBUtil.closePreparedStatement(ps);</div><div class="line">					</div><div class="line">					DBUtil.closeTxnConnection(conn, <span class="keyword">true</span>);</div><div class="line">				&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">					e.printStackTrace();</div><div class="line">					<span class="keyword">if</span> (<span class="keyword">null</span> != conn) &#123;</div><div class="line">						DBUtil.closeTxnConnection(conn, <span class="keyword">false</span>);</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line"></div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;).start();</div></pre></td></tr></table></figure>
-<h4 id="3-MySQL死锁日志"><a href="#3-MySQL死锁日志" class="headerlink" title="3) MySQL死锁日志"></a>3) MySQL死锁日志</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">------------------------</div><div class="line">LATEST DETECTED DEADLOCK</div><div class="line">------------------------</div><div class="line">2015-12-31 15:34:23 7fb7cdabb700</div><div class="line">*** (1) TRANSACTION:</div><div class="line">TRANSACTION 336633, ACTIVE 0 sec fetching rows</div><div class="line">mysql tables in use 1, locked 1</div><div class="line">LOCK WAIT 3 lock struct(s), heap size 360, 2 row lock(s)</div><div class="line">MySQL thread id 102345, OS thread handle 0x7fb7cdc41700, query id 1133481 172.16.5.15 root Sending data</div><div class="line">select acctSN+1 from t_acctsn_custno_pkid where custNo = &apos;0000001&apos; for update</div><div class="line">*** (1) WAITING FOR THIS LOCK TO BE GRANTED:</div><div class="line">RECORD LOCKS space id 810 page no 3 n bits 72 index `PRIMARY` of table `checkaccount`.`t_acctsn_custno_pkid` trx id 336633 lock_mode X locks rec but not gap waiting</div><div class="line">Record lock, heap no 3 PHYSICAL RECORD: n_fields 6; compact format; info bits 0</div><div class="line"> 0: len 8; hex 8000000000000002; asc         ;;</div><div class="line"> 1: len 6; hex 0000000522f0; asc     &quot; ;;</div><div class="line"> 2: len 7; hex 31000001721bc8; asc 1   r  ;;</div><div class="line"> 3: len 20; hex 3030303030303220202020202020202020202020; asc 0000002             ;;</div><div class="line"> 4: len 2; hex 3030; asc 00;;</div><div class="line"> 5: len 8; hex 3135343434202020; asc 15444   ;;</div><div class="line"></div><div class="line">*** (2) TRANSACTION:</div><div class="line">TRANSACTION 336632, ACTIVE 0 sec starting index read</div><div class="line">mysql tables in use 1, locked 1</div><div class="line">3 lock struct(s), heap size 360, 2 row lock(s)</div><div class="line">MySQL thread id 102340, OS thread handle 0x7fb7cdabb700, query id 1133491 172.16.5.15 root updating</div><div class="line">update  t_acctsn_custno_pkid  set acctSN=&apos;15445&apos;  where custNo = &apos;0000002&apos;</div><div class="line">*** (2) HOLDS THE LOCK(S):</div><div class="line">RECORD LOCKS space id 810 page no 3 n bits 72 index `PRIMARY` of table `checkaccount`.`t_acctsn_custno_pkid` trx id 336632 lock_mode X locks rec but not gap</div><div class="line">Record lock, heap no 3 PHYSICAL RECORD: n_fields 6; compact format; info bits 0</div><div class="line"> 0: len 8; hex 8000000000000002; asc         ;;</div><div class="line"> 1: len 6; hex 0000000522f0; asc     &quot; ;;</div><div class="line"> 2: len 7; hex 31000001721bc8; asc 1   r  ;;</div><div class="line"> 3: len 20; hex 3030303030303220202020202020202020202020; asc 0000002             ;;</div><div class="line"> 4: len 2; hex 3030; asc 00;;</div><div class="line"> 5: len 8; hex 3135343434202020; asc 15444   ;;</div><div class="line"></div><div class="line">*** (2) WAITING FOR THIS LOCK TO BE GRANTED:</div><div class="line">RECORD LOCKS space id 810 page no 3 n bits 72 index `PRIMARY` of table `checkaccount`.`t_acctsn_custno_pkid` trx id 336632 lock_mode X locks rec but not gap waiting</div><div class="line">Record lock, heap no 2 PHYSICAL RECORD: n_fields 6; compact format; info bits 0</div><div class="line"> 0: len 8; hex 8000000000000001; asc         ;;</div><div class="line"> 1: len 6; hex 0000000522f1; asc     &quot; ;;</div><div class="line"> 2: len 7; hex 32000001b423cc; asc 2    # ;;</div><div class="line"> 3: len 20; hex 3030303030303120202020202020202020202020; asc 0000001             ;;</div><div class="line"> 4: len 2; hex 3030; asc 00;;</div><div class="line"> 5: len 8; hex 3537323520202020; asc 5725    ;;</div><div class="line"></div><div class="line">*** WE ROLL BACK TRANSACTION (2)</div></pre></td></tr></table></figure>
+<h4 id="2-问题程序示意"><a href="#2-问题程序示意" class="headerlink" title="2)问题程序示意"></a>2)问题程序示意</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> concurrency = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> c = <span class="number">0</span>; c &lt; concurrency; c++) &#123;</span><br><span class="line">	<span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">				Connection conn = <span class="keyword">null</span>;</span><br><span class="line">				<span class="keyword">try</span> &#123;</span><br><span class="line">					conn = DBUtil.getTxnConnection();</span><br><span class="line">					PreparedStatement ps = DBUtil.getPreparedStatement(conn,</span><br><span class="line">							<span class="string">"select acctSN+1 from t_acctsn_custno_pkid where custNo = ? for update"</span>);</span><br><span class="line">					ps.setString(<span class="number">1</span>, <span class="string">"0000001"</span>);</span><br><span class="line">					ResultSet rs = ps.executeQuery();</span><br><span class="line">					DBUtil.closePreparedStatement(ps);</span><br><span class="line">					</span><br><span class="line">					ps = DBUtil.getPreparedStatement(conn,</span><br><span class="line">							<span class="string">"update  t_acctsn_custno_pkid  set acctSN=?  where custNo = ? "</span>);</span><br><span class="line">					ps.setString(<span class="number">1</span>, acctSN);</span><br><span class="line">					ps.setString(<span class="number">2</span>, <span class="string">"0000001"</span>);</span><br><span class="line">					ps.executeUpdate();</span><br><span class="line">					DBUtil.closePreparedStatement(ps);</span><br><span class="line">					</span><br><span class="line">					DBUtil.closeTxnConnection(conn, <span class="keyword">true</span>);</span><br><span class="line">				&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">					e.printStackTrace();</span><br><span class="line">					<span class="keyword">if</span> (<span class="keyword">null</span> != conn) &#123;</span><br><span class="line">						DBUtil.closeTxnConnection(conn, <span class="keyword">false</span>);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;).start();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">				Connection conn = <span class="keyword">null</span>;</span><br><span class="line">				<span class="keyword">try</span> &#123;</span><br><span class="line">					conn = DBUtil.getTxnConnection();</span><br><span class="line">					PreparedStatement ps = DBUtil.getPreparedStatement(conn,</span><br><span class="line">							<span class="string">"select acctSN+1 from t_acctsn_custno_pkid where custNo = ? for update"</span>);</span><br><span class="line">					ps.setString(<span class="number">1</span>, <span class="string">"0000002"</span>);</span><br><span class="line">					ResultSet rs = ps.executeQuery();</span><br><span class="line">					DBUtil.closePreparedStatement(ps);</span><br><span class="line">					</span><br><span class="line">					ps = DBUtil.getPreparedStatement(conn,</span><br><span class="line">							<span class="string">" update  t_acctsn_custno_pkid  set acctSN=?  where custNo = ? "</span>);</span><br><span class="line">					ps.setString(<span class="number">1</span>, acctSN);</span><br><span class="line">					ps.setString(<span class="number">2</span>, <span class="string">"0000002"</span>);</span><br><span class="line">					ps.executeUpdate();</span><br><span class="line">					DBUtil.closePreparedStatement(ps);</span><br><span class="line">					</span><br><span class="line">					DBUtil.closeTxnConnection(conn, <span class="keyword">true</span>);</span><br><span class="line">				&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">					e.printStackTrace();</span><br><span class="line">					<span class="keyword">if</span> (<span class="keyword">null</span> != conn) &#123;</span><br><span class="line">						DBUtil.closeTxnConnection(conn, <span class="keyword">false</span>);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;).start();</span><br></pre></td></tr></table></figure>
+<h4 id="3-MySQL死锁日志"><a href="#3-MySQL死锁日志" class="headerlink" title="3) MySQL死锁日志"></a>3) MySQL死锁日志</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">------------------------</span><br><span class="line">LATEST DETECTED DEADLOCK</span><br><span class="line">------------------------</span><br><span class="line">2015-12-31 15:34:23 7fb7cdabb700</span><br><span class="line">*** (1) TRANSACTION:</span><br><span class="line">TRANSACTION 336633, ACTIVE 0 sec fetching rows</span><br><span class="line">mysql tables in use 1, locked 1</span><br><span class="line">LOCK WAIT 3 lock struct(s), heap size 360, 2 row lock(s)</span><br><span class="line">MySQL thread id 102345, OS thread handle 0x7fb7cdc41700, query id 1133481 172.16.5.15 root Sending data</span><br><span class="line">select acctSN+1 from t_acctsn_custno_pkid where custNo = &apos;0000001&apos; for update</span><br><span class="line">*** (1) WAITING FOR THIS LOCK TO BE GRANTED:</span><br><span class="line">RECORD LOCKS space id 810 page no 3 n bits 72 index `PRIMARY` of table `checkaccount`.`t_acctsn_custno_pkid` trx id 336633 lock_mode X locks rec but not gap waiting</span><br><span class="line">Record lock, heap no 3 PHYSICAL RECORD: n_fields 6; compact format; info bits 0</span><br><span class="line"> 0: len 8; hex 8000000000000002; asc         ;;</span><br><span class="line"> 1: len 6; hex 0000000522f0; asc     &quot; ;;</span><br><span class="line"> 2: len 7; hex 31000001721bc8; asc 1   r  ;;</span><br><span class="line"> 3: len 20; hex 3030303030303220202020202020202020202020; asc 0000002             ;;</span><br><span class="line"> 4: len 2; hex 3030; asc 00;;</span><br><span class="line"> 5: len 8; hex 3135343434202020; asc 15444   ;;</span><br><span class="line"></span><br><span class="line">*** (2) TRANSACTION:</span><br><span class="line">TRANSACTION 336632, ACTIVE 0 sec starting index read</span><br><span class="line">mysql tables in use 1, locked 1</span><br><span class="line">3 lock struct(s), heap size 360, 2 row lock(s)</span><br><span class="line">MySQL thread id 102340, OS thread handle 0x7fb7cdabb700, query id 1133491 172.16.5.15 root updating</span><br><span class="line">update  t_acctsn_custno_pkid  set acctSN=&apos;15445&apos;  where custNo = &apos;0000002&apos;</span><br><span class="line">*** (2) HOLDS THE LOCK(S):</span><br><span class="line">RECORD LOCKS space id 810 page no 3 n bits 72 index `PRIMARY` of table `checkaccount`.`t_acctsn_custno_pkid` trx id 336632 lock_mode X locks rec but not gap</span><br><span class="line">Record lock, heap no 3 PHYSICAL RECORD: n_fields 6; compact format; info bits 0</span><br><span class="line"> 0: len 8; hex 8000000000000002; asc         ;;</span><br><span class="line"> 1: len 6; hex 0000000522f0; asc     &quot; ;;</span><br><span class="line"> 2: len 7; hex 31000001721bc8; asc 1   r  ;;</span><br><span class="line"> 3: len 20; hex 3030303030303220202020202020202020202020; asc 0000002             ;;</span><br><span class="line"> 4: len 2; hex 3030; asc 00;;</span><br><span class="line"> 5: len 8; hex 3135343434202020; asc 15444   ;;</span><br><span class="line"></span><br><span class="line">*** (2) WAITING FOR THIS LOCK TO BE GRANTED:</span><br><span class="line">RECORD LOCKS space id 810 page no 3 n bits 72 index `PRIMARY` of table `checkaccount`.`t_acctsn_custno_pkid` trx id 336632 lock_mode X locks rec but not gap waiting</span><br><span class="line">Record lock, heap no 2 PHYSICAL RECORD: n_fields 6; compact format; info bits 0</span><br><span class="line"> 0: len 8; hex 8000000000000001; asc         ;;</span><br><span class="line"> 1: len 6; hex 0000000522f1; asc     &quot; ;;</span><br><span class="line"> 2: len 7; hex 32000001b423cc; asc 2    # ;;</span><br><span class="line"> 3: len 20; hex 3030303030303120202020202020202020202020; asc 0000001             ;;</span><br><span class="line"> 4: len 2; hex 3030; asc 00;;</span><br><span class="line"> 5: len 8; hex 3537323520202020; asc 5725    ;;</span><br><span class="line"></span><br><span class="line">*** WE ROLL BACK TRANSACTION (2)</span><br></pre></td></tr></table></figure>
 <h4 id="4-MySQL数据库隔离级别"><a href="#4-MySQL数据库隔离级别" class="headerlink" title="4) MySQL数据库隔离级别"></a>4) MySQL数据库隔离级别</h4><p>RC(READ COMMITTED)</p>
 <h3 id="2-知识准备"><a href="#2-知识准备" class="headerlink" title="2 知识准备"></a>2 知识准备</h3><ul>
 <li>1 一条当前读的SQL语句，InnoDB与MySQL Server的交互，是一条一条进行的，因此，加锁也是一条一条进行的。先对一条满足条件的记录加锁，返回给MySQL Server，做一些DML操作；然后在读取下一条加锁，直至读取完毕。</li>
@@ -465,6 +521,9 @@
 
       
     </div>
+
+    
+
     
     
     
@@ -472,7 +531,7 @@
     
       <div>
         <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
-    <img id="wechat_subscriber_qcode" src="/uploads/wechat-qcode.jpg" alt="fintxorg wechat" style="width: 200px; max-width: 100%;"/>
+    <img id="wechat_subscriber_qcode" src="/wechat-qcode.jpg" alt="fintxorg wechat" style="width: 200px; max-width: 100%;"/>
     <div>欢迎您扫一扫上面的微信公众号订阅！</div>
 </div>
 
@@ -485,17 +544,13 @@
       <div>
         <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>本文作者：</strong>
-    fintxorg
-  </li>
+    <strong>本文作者： </strong>fintxorg</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     <a href="http://www.fintx.org/20170723-deadlock-analysis-of-mysql-1.html" title="MySQL线上死锁问题分析一例">http://www.fintx.org/20170723-deadlock-analysis-of-mysql-1.html</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>
-    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
-  </li>
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
 </ul>
 
       </div>
@@ -560,13 +615,6 @@
           </div>
           
 
-
-          
-  <div class="comments" id="comments">
-    
-  </div>
-
-
         </div>
         
           
@@ -587,93 +635,136 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             站点概览
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          
-            <img class="site-author-image" itemprop="image"
-              src="/uploads/avatar.jpg"
-              alt="fintxorg" />
-          
-            <p class="site-author-name" itemprop="name">fintxorg</p>
-            <p class="site-description motion-element" itemprop="description"></p>
-        </div>
-
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <a href="/archives/">
+              <img class="site-author-image" itemprop="image"
+                src="/avatar.jpg"
+                alt="fintxorg" />
             
-                <span class="site-state-item-count">9</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">12</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
+              <p class="site-author-name" itemprop="name">fintxorg</p>
+              <p class="site-description motion-element" itemprop="description">Financial Technologies Orgnazation</p>
           </div>
-        
 
-        <div class="links-of-author motion-element">
           
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/fintx" target="_blank" title="GitHub">
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/fintx" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
                   
-                    <i class="fa fa-fw fa-github"></i>GitHub</a>
-              </span>
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
             
           
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
       </section>
 
       
@@ -686,7 +777,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-问题描述"><span class="nav-text">1 问题描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#0-表结构"><span class="nav-text">0)表结构:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-表数据"><span class="nav-text">1)表数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-问题程序示意"><span class="nav-text">2)问题程序示意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-MySQL死锁日志"><span class="nav-text">3) MySQL死锁日志</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-MySQL数据库隔离级别"><span class="nav-text">4) MySQL数据库隔离级别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-知识准备"><span class="nav-text">2 知识准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-死锁分析"><span class="nav-text">3 死锁分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#0-死锁日志分析"><span class="nav-text">0)死锁日志分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-事物时序分析"><span class="nav-text">1)事物时序分析</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-解决方法"><span class="nav-text">4 解决方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-问题描述"><span class="nav-number">1.</span> <span class="nav-text">1 问题描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#0-表结构"><span class="nav-number">1.1.</span> <span class="nav-text">0)表结构:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-表数据"><span class="nav-number">1.2.</span> <span class="nav-text">1)表数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-问题程序示意"><span class="nav-number">1.3.</span> <span class="nav-text">2)问题程序示意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-MySQL死锁日志"><span class="nav-number">1.4.</span> <span class="nav-text">3) MySQL死锁日志</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-MySQL数据库隔离级别"><span class="nav-number">1.5.</span> <span class="nav-text">4) MySQL数据库隔离级别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-知识准备"><span class="nav-number">2.</span> <span class="nav-text">2 知识准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-死锁分析"><span class="nav-number">3.</span> <span class="nav-text">3 死锁分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#0-死锁日志分析"><span class="nav-number">3.1.</span> <span class="nav-text">0)死锁日志分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-事物时序分析"><span class="nav-number">3.2.</span> <span class="nav-text">1)事物时序分析</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-解决方法"><span class="nav-number">4.</span> <span class="nav-text">4 解决方法</span></a></li></ol></div>
             
 
           </div>
@@ -706,27 +797,37 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2017 &mdash; 
-  <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">fintxorg</span>
+  <span class="author" itemprop="copyrightHolder">FinTx</span>
+
+  
 
   
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
 
   <span class="post-meta-divider">|</span>
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.2.0</div>
+
+
 
 
         
+
 
 
 
@@ -743,6 +844,8 @@
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -763,7 +866,6 @@
 
 
 
-  
 
 
 
@@ -776,62 +878,60 @@
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
 
   
   
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
 
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
 
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
-
-
-
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
 
 
   
 
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/affix.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.2.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
 
 
 
   
 
 
-  
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
 
+
+
+  
 
 
 
@@ -848,6 +948,8 @@
 
 
   
+
+
 
 
 
@@ -907,6 +1009,8 @@
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
+      
+
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -940,6 +1044,7 @@
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
                 var contentInLowerCase = content.toLowerCase();
                 var articleUrl = decodeURIComponent(data.url);
                 var indexOfTitle = [];
@@ -1186,8 +1291,33 @@
   
 
   
+  
 
   
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script type="text/javascript">
+  
+    bookmark.scrollToMark('auto', "#更多");
+  
+  </script>
+
 
   
 
