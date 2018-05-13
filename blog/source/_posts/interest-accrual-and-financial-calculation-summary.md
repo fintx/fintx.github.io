@@ -1,5 +1,5 @@
 ---
-title: 银行核心系统及研发转型
+title: 计息方法及金融计算总结
 date: 2018-05-12 22:47:52
 categories: Financial System
 tags: [interest]
