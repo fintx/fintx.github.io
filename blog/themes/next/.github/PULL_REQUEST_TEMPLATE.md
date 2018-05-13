@@ -13,7 +13,7 @@
 ## PR Checklist
 **Please check if your PR fulfills the following requirements:**
 
-- [ ] The commit message follows [our guidelines](https://github.com/iissnan/hexo-theme-next/blob/master/.github/CONTRIBUTING.md).
+- [ ] The commit message follows [our guidelines](https://github.com/theme-next/hexo-theme-next/blob/master/.github/CONTRIBUTING.md).
 - [ ] Tests for the changes have been added (for bug fixes / features).
    - [ ] Muse | Mist have been tested.
    - [ ] Pisces | Gemini have been tested.
@@ -55,7 +55,7 @@ In NexT `_config.yml`:
 <!-- If this PR contains a breaking change, please describe the impact and migration path for existing applications below. -->
 
 <!-- BIG pull template -->
-<!-- 
+<!--
 1. xxxxxxx - commit link on modified file. Just copy this below your pull request readme.
 2. You can paste any image directly from your clipboard. Just press **Print Scr** and paste it into pull readme - link on image will generate and paste automaticly.
 -->
@@ -63,10 +63,16 @@ In NexT `_config.yml`:
 ## PART X. Title of fixes and/or enhancements.
 Short description in several words here.
 
+Issue Number(s): #xxxx.
+
 ### Files modified:
 1.	Short description of modified file [1].			xxxxxxx
 2.	Short description of modified file [2].			xxxxxxx
 3.	Short description of modified file [3].			xxxxxxx
+
+### Global code changes:
+* ADD: `newFunction` in `utils.js`.
+* DEL: `oldFunction` from `utils.js`
 
 ### How it looks?
 ![image](https://user-images.githubusercontent.com/xxxxxxxx/xxxxxxxx-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx.png)
@@ -75,7 +81,7 @@ Live demo [here](http://site.com/).
 
 ### How to use?
 In Next `_config.yml`:
-```
+```yml
 ...
 ```
 -->
