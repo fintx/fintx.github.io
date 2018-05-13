@@ -107,7 +107,7 @@
 <meta property="og:site_name" content="FinTx">
 <meta property="og:description" content="准确，合规，安全，可追溯">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-13T13:30:41.747Z">
+<meta property="og:updated_time" content="2018-05-13T16:07:14.708Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="金融核心系统设计要点">
 <meta name="twitter:description" content="准确，合规，安全，可追溯">
@@ -320,6 +320,17 @@
     </header>
 
     
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/bluecreator" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
 
 
     <main id="main" class="main">
@@ -407,7 +418,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-13 21:30:41" itemprop="dateModified" datetime="2018-05-13T21:30:41+08:00">2018-05-13</time>
+                <time title="修改时间：2018-05-14 00:07:14" itemprop="dateModified" datetime="2018-05-14T00:07:14+08:00">2018-05-14</time>
               
             
           </span>
@@ -458,13 +469,13 @@
       
 
       
-        <h3 id="1-留痕"><a href="#1-留痕" class="headerlink" title="1 留痕"></a>1 留痕</h3><p>对所有的登陆，退出，请求，响应，业务处理都要记录历史信息。方便风控，审计，追溯，定位。</p>
+        <h3 id="1-正确"><a href="#1-正确" class="headerlink" title="1 正确"></a>1 正确</h3><p>正确时金融系统设计的第一原则，不能保证正确其他原则都无从谈起</p>
 <h3 id="2-安全"><a href="#2-安全" class="headerlink" title="2 安全"></a>2 安全</h3><p>对金融数据做到防篡改，防解析，防获取。默认不信任任何外来请求，数据…</p>
+<h3 id="1-可追溯"><a href="#1-可追溯" class="headerlink" title="1 可追溯"></a>1 可追溯</h3><p>对所有的登陆，退出，请求，响应，业务处理都要记录历史信息。方便风控，审计，追溯，定位。</p>
 <h3 id="3-一致"><a href="#3-一致" class="headerlink" title="3 一致"></a>3 一致</h3><p>服务内强一致性与服务间最终一致性相结合使用。系统间完善对账机制。</p>
-<h3 id="4-交互"><a href="#4-交互" class="headerlink" title="4 交互"></a>4 交互</h3><p>无论服务内还是服务间，带超时的同步接口，查询/异步通知接口，撤销接口，配合定时补偿机制，结合使用。</p>
-<h3 id="5-标识"><a href="#5-标识" class="headerlink" title="5 标识"></a>5 标识</h3><p>request要有RequestId，responseId，业务要有businessId…，对每一次变化，都可识别。</p>
-<h3 id="6-去重"><a href="#6-去重" class="headerlink" title="6 去重"></a>6 去重</h3><p>请求去重，反馈去重，业务去重，对每一次变化，都有机制保证不重复处理，保证结果正确。</p>
-<h3 id="7-幂等"><a href="#7-幂等" class="headerlink" title="7 幂等"></a>7 幂等</h3><p>保证服务调用的幂等性，业务处理的幂等性。</p>
+<h3 id="4-补偿"><a href="#4-补偿" class="headerlink" title="4 补偿"></a>4 补偿</h3><p>无论服务内还是服务间，带超时的同步接口，查询/异步通知接口，撤销接口，配合定时补偿机制，结合使用。</p>
+<h3 id="5-可识别"><a href="#5-可识别" class="headerlink" title="5 可识别"></a>5 可识别</h3><p>request要有RequestId，responseId，业务要有businessId…，对每一次变化，都可识别。</p>
+<h3 id="7-幂等"><a href="#7-幂等" class="headerlink" title="7 幂等"></a>7 幂等</h3><p>保证服务调用的幂等性，业务处理的幂等性，不能保证幂等的地方需要请求去重，反馈去重，业务去重，对每一次变化，才能保证结果正确。</p>
 <h3 id="8-风控"><a href="#8-风控" class="headerlink" title="8 风控"></a>8 风控</h3><p>风控针对所有用户。不仅包括所有客户，也包括所有内部用户。</p>
 <h3 id="9-合规"><a href="#9-合规" class="headerlink" title="9 合规"></a>9 合规</h3><p>在国内的大环境下，对于有一定规模或有一定追求的金融公司，监管是不得不面对的问题。尤其是对互联网金融企业，针对一些国家，地方的互联网监管规范要求，如《互联网金融统计制度》和其他一些报送要求。</p>
 <p>欢迎在GitHub上关注FinTx开源金融系统：<a href="https://github.com/fintx" target="_blank" rel="noopener">FinTx</a></p>
@@ -723,7 +734,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-留痕"><span class="nav-number">1.</span> <span class="nav-text">1 留痕</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安全"><span class="nav-number">2.</span> <span class="nav-text">2 安全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-一致"><span class="nav-number">3.</span> <span class="nav-text">3 一致</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-交互"><span class="nav-number">4.</span> <span class="nav-text">4 交互</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-标识"><span class="nav-number">5.</span> <span class="nav-text">5 标识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-去重"><span class="nav-number">6.</span> <span class="nav-text">6 去重</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-幂等"><span class="nav-number">7.</span> <span class="nav-text">7 幂等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-风控"><span class="nav-number">8.</span> <span class="nav-text">8 风控</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-合规"><span class="nav-number">9.</span> <span class="nav-text">9 合规</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-正确"><span class="nav-number">1.</span> <span class="nav-text">1 正确</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安全"><span class="nav-number">2.</span> <span class="nav-text">2 安全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-可追溯"><span class="nav-number">3.</span> <span class="nav-text">1 可追溯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-一致"><span class="nav-number">4.</span> <span class="nav-text">3 一致</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-补偿"><span class="nav-number">5.</span> <span class="nav-text">4 补偿</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-可识别"><span class="nav-number">6.</span> <span class="nav-text">5 可识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-幂等"><span class="nav-number">7.</span> <span class="nav-text">7 幂等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-风控"><span class="nav-number">8.</span> <span class="nav-text">8 风控</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-合规"><span class="nav-number">9.</span> <span class="nav-text">9 合规</span></a></li></ol></div>
             
 
           </div>
