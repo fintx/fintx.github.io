@@ -65,13 +65,13 @@
     <link href="http://www.fintx.org/20170827-finacial-system-design-principle.html"/>
     <id>http://www.fintx.org/20170827-finacial-system-design-principle.html</id>
     <published>2017-08-27T02:13:20.000Z</published>
-    <updated>2018-05-13T16:07:14.708Z</updated>
+    <updated>2018-05-13T16:23:41.229Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="1-正确"><a href="#1-正确" class="headerlink" title="1 正确"></a>1 正确</h3><p>正确时金融系统设计的第一原则，不能保证正确其他原则都无从谈起</p><h3 id="2-安全"><a href="#2-安全" class="headerlink" title="2 安全"></a>2 安全</h3><p>对金融数据做到防篡改，防解析，防获取。默认不信任任何外来请求，数据…</p><h3 id="1-可追溯"><a href="#1-可追溯" class="headerlink" title="1 可追溯"></a>1 可追溯</h3><p>对所有的登陆，退出，请求，响应，业务处理都要记录历史信息。方便风控，审计，追溯，定位。</p><h3 id="3-一致"><a href="#3-一致" class="headerlink" title="3 一致"></a>3 一致</h3><p>服务内强一致性与服务间最终一致性相结合使用。系统间完善对账机制。</p><h3 id="4-补偿"><a href="#4-补偿" class="headerlink" title="4 补偿"></a>4 补偿</h3><p>无论服务内还是服务间，带超时的同步接口，查询/异步通知接口，撤销接口，配合定时补偿机制，结合使用。</p><h3 id="5-可识别"><a href="#5-可识别" class="headerlink" title="5 可识别"></a>5 可识别</h3><p>request要有RequestId，responseId，业务要有businessId…，对每一次变化，都可识别。</p><h3 id="7-幂等"><a href="#7-幂等" class="headerlink" title="7 幂等"></a>7 幂等</h3><p>保证服务调用的幂等性，业务处理的幂等性，不能保证幂等的地方需要请求去重，反馈去重，业务去重，对每一次变化，才能保证结果正确。</p><h3 id="8-风控"><a href="#8-风控" class="headerlink" title="8 风控"></a>8 风控</h3><p>风控针对所有用户。不仅包括所有客户，也包括所有内部用户。</p><h3 id="9-合规"><a href="#9-合规" class="headerlink" title="9 合规"></a>9 合规</h3><p>在国内的大环境下，对于有一定规模或有一定追求的金融公司，监管是不得不面对的问题。尤其是对互联网金融企业，针对一些国家，地方的互联网监管规范要求，如《互联网金融统计制度》和其他一些报送要求。</p><p>欢迎在GitHub上关注FinTx开源金融系统：<a href="https://github.com/fintx" target="_blank" rel="noopener">FinTx</a></p>]]></content>
+    <content type="html"><![CDATA[<h3 id="1-正确"><a href="#1-正确" class="headerlink" title="1 正确"></a>1 正确</h3><p>正确时金融系统设计的第一原则，不能保证正确其他原则都无从谈起。</p><h3 id="2-安全"><a href="#2-安全" class="headerlink" title="2 安全"></a>2 安全</h3><p>对金融数据做到防篡改，防解析，防获取。默认不信任任何外来请求，数据…</p><h3 id="3-可追溯"><a href="#3-可追溯" class="headerlink" title="3 可追溯"></a>3 可追溯</h3><p>对所有的登陆，退出，请求，响应，业务处理都要记录历史信息。方便风控，审计，追溯，定位。</p><h3 id="4-一致"><a href="#4-一致" class="headerlink" title="4 一致"></a>4 一致</h3><p>服务内强一致性与服务间最终一致性相结合使用。系统间完善对账机制与业务环路监控。</p><h3 id="5-识别"><a href="#5-识别" class="headerlink" title="5 识别"></a>5 识别</h3><p>request要有RequestId，responseId，业务要有businessId…，对每一次变化，都可识别。</p><h3 id="6-可补偿"><a href="#6-可补偿" class="headerlink" title="6 可补偿"></a>6 可补偿</h3><p>无论服务内还是服务间，带超时的同步接口，查询/异步通知接口，撤销接口，配合定时补偿机制，结合使用。</p><h3 id="7-幂等"><a href="#7-幂等" class="headerlink" title="7 幂等"></a>7 幂等</h3><p>保证服务调用的幂等性，业务处理的幂等性，不能保证幂等的地方需要请求去重，反馈去重，业务去重，对每一次变化，才能保证结果正确。</p><h3 id="8-要合规"><a href="#8-要合规" class="headerlink" title="8 要合规"></a>8 要合规</h3><p>在国内的大环境下，对于有一定规模或有一定追求的金融公司，监管是不得不面对的问题。尤其是对互联网金融企业，针对一些国家，地方的互联网监管规范要求，如《互联网金融统计制度》和其他一些报送要求。</p><h3 id="9-风控"><a href="#9-风控" class="headerlink" title="9 风控"></a>9 风控</h3><p>风控针对所有用户。不仅包括所有客户，也包括所有内部用户。</p><p>欢迎在GitHub上关注FinTx开源金融系统：<a href="https://github.com/fintx" target="_blank" rel="noopener">FinTx</a></p>]]></content>
     
     <summary type="html">
     
-      准确，合规，安全，可追溯
+      准确，安全，可追溯，
     
     </summary>
     
