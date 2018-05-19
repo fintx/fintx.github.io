@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.fintx.org/20170730-introduction-of-accounting-system.html</loc>
+    
+    <lastmod>2018-05-19T17:06:16.033Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fintx.org/20180512-interest-accrual-and-financial-calculation-summary.html</loc>
+    
+    <lastmod>2018-05-19T17:05:50.443Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fintx.org/20170628-thinking-about-business-and-technology.html</loc>
+    
+    <lastmod>2018-05-19T17:03:47.208Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.fintx.org/20170827-finacial-system-design-principle.html</loc>
     
     <lastmod>2018-05-19T16:19:44.980Z</lastmod>
@@ -16,13 +37,6 @@
   </url>
   
   <url>
-    <loc>http://www.fintx.org/20170628-thinking-about-business-and-technology.html</loc>
-    
-    <lastmod>2018-05-19T16:13:52.356Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fintx.org/20180430-core-banking-system-and-it-development-transition.html</loc>
     
     <lastmod>2018-05-13T16:32:50.784Z</lastmod>
@@ -33,13 +47,6 @@
     <loc>http://www.fintx.org/20170725-7x24-continuous-accounting-system.html</loc>
     
     <lastmod>2018-05-13T16:32:13.167Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fintx.org/20180512-interest-accrual-and-financial-calculation-summary.html</loc>
-    
-    <lastmod>2018-05-13T16:31:39.852Z</lastmod>
     
   </url>
   
@@ -61,13 +68,6 @@
     <loc>http://www.fintx.org/20170705-dev-qa-ops-unified-flow-base-on-gitlab-flow.html</loc>
     
     <lastmod>2018-05-13T13:40:51.436Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fintx.org/20170730-introduction-of-accounting-system.html</loc>
-    
-    <lastmod>2018-05-13T13:39:36.528Z</lastmod>
     
   </url>
   
