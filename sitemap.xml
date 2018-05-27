@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.fintx.org/20170827-finacial-system-design-principle.html</loc>
+    
+    <lastmod>2018-05-27T15:12:51.462Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fintx.org/20170815-id-generation.html</loc>
+    
+    <lastmod>2018-05-27T15:12:10.753Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fintx.org/20170723-deadlock-analysis-of-mysql-1.html</loc>
+    
+    <lastmod>2018-05-27T15:11:35.019Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fintx.org/20170725-7x24-continuous-accounting-system.html</loc>
+    
+    <lastmod>2018-05-27T15:11:04.475Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.fintx.org/20170730-introduction-of-accounting-system.html</loc>
     
     <lastmod>2018-05-19T17:06:16.033Z</lastmod>
@@ -23,37 +51,9 @@
   </url>
   
   <url>
-    <loc>http://www.fintx.org/20170827-finacial-system-design-principle.html</loc>
-    
-    <lastmod>2018-05-19T16:19:44.980Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fintx.org/20170723-deadlock-analysis-of-mysql-1.html</loc>
-    
-    <lastmod>2018-05-19T16:17:20.271Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fintx.org/20180430-core-banking-system-and-it-development-transition.html</loc>
     
     <lastmod>2018-05-13T16:32:50.784Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fintx.org/20170725-7x24-continuous-accounting-system.html</loc>
-    
-    <lastmod>2018-05-13T16:32:13.167Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fintx.org/20170815-id-generation.html</loc>
-    
-    <lastmod>2018-05-13T16:29:23.271Z</lastmod>
     
   </url>
   
