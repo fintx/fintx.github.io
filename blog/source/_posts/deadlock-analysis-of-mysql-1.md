@@ -2,7 +2,7 @@
 title: MySQL线上死锁问题分析一例
 date: 2017-07-23 16:18:04
 categories: Technique
-tags: [database,mysql,deadlock]
+tags: [mysql,deadlock]
 comments: false
 description: "一次真实线上故障的总结"
 ---

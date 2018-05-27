@@ -1,7 +1,7 @@
 ---
 title: 金融核心系统设计原则
 date: 2017-08-27 10:13:20
-categories: System Design
+categories: Design
 tags: [financial system]
 comments: false
 description: "准确，安全，合规，可追溯，一致，补偿，幂等，识别，内外控"
